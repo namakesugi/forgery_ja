@@ -1,8 +1,10 @@
-== ForgeryJa
+ForgeryJa
+========
 
 Forgeryにおいて日本語のテストデータを作成します
 
-== install
+install
+---------
 
 <pre><code>
 # Add this to your Gemfile
@@ -14,23 +16,26 @@ cd vendor/plugins
 git clone git://github.com/namakesugi/forgery_ja.git
 </code></pre>
 
+Examples
+-----------
 
-== Examples
-
-<pre><code>
-ForgeryJa(:name).full_name                            # => "山本 健"
+* Name関連
+<pre><code>ForgeryJa(:name).full_name                            # => "山本 健"
 ForgeryJa(:name).full_name(ForgeryJa::Name::HIRA)     # => "なかむら しゅん"
 ForgeryJa(:name).full_name(ForgeryJa::NameJa::KANA)   # => "フジタ アマネ"
 ForgeryJa(:name).full_name(ForgeryJa::NameJa::H_KANA) # => "ﾀﾏｼﾛ ﾕｽﾞﾊ" = half kana
 ForgeryJa(:name).full_name(ForgeryJa::NameJa::ROMA)   # => "suzuki midori"
 </code></pre>
 
-== features
+* 
+features
+-----------
 
 * Gem化したい(やり方よくわからん)
 * Address作る
 * 電話番号作る
 
-== Copyright
+Copyright
+------------
 
 Copyright (c) 2011 NAMAKESUGI, released under the MIT license

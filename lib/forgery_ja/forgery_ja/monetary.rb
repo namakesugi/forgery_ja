@@ -6,7 +6,7 @@ class ForgeryJa::Monetary < Forgery::Monetary
   # @option options [Integer] :min (0) 金額の最小値
   # @return String :max - :minの間の数値に[円]を付与して返します
   def self.formatted_money(options={})
-    "%d円" % ja_money(options)
+    "%d円" % money(options)
   end
 
   # @params Hash options

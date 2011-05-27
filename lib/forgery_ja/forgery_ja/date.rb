@@ -14,7 +14,7 @@ class ForgeryJa::Date < Forgery::Date
   # @param Hash options
   # @option options [String] :abbr (false) 短縮形を使うかどうか
   # @return String 曜日を日本語で返します
-  def self.ja_day_of_week(options={})
+  def self.day_of_week(options={})
     options.reverse_merge!(:abbr => false)
 
     if options[:abbr]
@@ -27,7 +27,7 @@ class ForgeryJa::Date < Forgery::Date
   # @param Hash options
   # @option options [String] :wa (false) 和名を使うかどうか
   # @return String 月の名前を日本語で返します
-  def self.ja_month(options={})
+  def self.month(options={})
     options.reverse_merge!(:wa => false)
 
     if options[:wa]

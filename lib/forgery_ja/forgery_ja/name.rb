@@ -45,7 +45,7 @@ class ForgeryJa::Name < Forgery::Name
   end
 
   def self.job_title(ret_type=KANJI)
-    parse(ddictionaries[:job_titles_ja].random, ret_type)
+    parse(dictionaries[:job_titles_ja].random, ret_type)
   end
 
   def self.title

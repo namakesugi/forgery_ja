@@ -12,10 +12,10 @@ Add Gemfile
 ### Name関連
 
 <pre><code>ForgeryJa(:name).full_name                            # => "山本 健"
-ForgeryJa(:name).full_name(ForgeryJa::HIRA)     # => "なかむら しゅん"
-ForgeryJa(:name).full_name(ForgeryJa::KANA)     # => "フジタ アマネ"
-ForgeryJa(:name).full_name(ForgeryJa::H_KANA)   # => "ﾀﾏｼﾛ ﾕｽﾞﾊ" ... half kana
-ForgeryJa(:name).full_name(ForgeryJa::ROMA)     # => "suzuki midori"
+ForgeryJa(:name).full_name(:to => ForgeryJa::HIRA)     # => "なかむら しゅん"
+ForgeryJa(:name).full_name(:to => ForgeryJa::KANA)     # => "フジタ アマネ"
+ForgeryJa(:name).full_name(:to => ForgeryJa::H_KANA)   # => "ﾀﾏｼﾛ ﾕｽﾞﾊ" ... half kana
+ForgeryJa(:name).full_name(:to => ForgeryJa::ROMA)     # => "suzuki midori"
 ForgeryJa(:name).first_name                           # => "健"
 ForgeryJa(:name).last_name                            # => "鈴木"
 ForgeryJa(:name).male_first_name                      # => "健" ... 男性名
@@ -59,7 +59,7 @@ ForgeryJa(:date).day_of_week(:abbr => true) # => "月"</code></pre>
 
 ## features
 
-* Gem化したい(もうちょっと)
+* Gem化したい(できた？)
 * Address作る
 * 電話番号作る
 

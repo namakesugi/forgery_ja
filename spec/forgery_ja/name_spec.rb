@@ -51,7 +51,7 @@ describe ForgeryJa::Name do
   describe ".company_name" do
     context "企業名が返る" do
       subject { ForgeryJa(:name).company_name(:to => ForgeryJa::KANJI) }
-      it { should.is_a?(String) }
+      it { should be_kind_of(String)  }
     end
   end
 end

@@ -3,8 +3,8 @@
 class ForgeryJa::Monetary < Forgery::Monetary
   # @param Hash options
   # @option options [String] :format ("%d円") 金額出力の際のフォーマット
-  # @option options [Integer] :max (1000) 金額の最大値
-  # @option options [Integer] :min (0) 金額の最小値
+  # @option options [Fixnum] :max (1000) 金額の最大値
+  # @option options [Fixnum] :min (0) 金額の最小値
   # @return String :max - :minの間の数値に[円]を付与して返します
   def self.formatted_money(options={})
     options = {:format => "%d円"}.merge(options)

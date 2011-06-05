@@ -1,0 +1,8 @@
+lib/forgery_ja/version.rb cb80b1a6ef92bef543bfdf913f12a381ded58b9f
+lib/forgery_ja/constant.rb 725f1d5eb24f6d568d7d14b69ccc6780364cc343
+lib/forgery_ja/forgery_ja.rb 4bcbfc592564edff42dc21ce66f9a914057d1593
+lib/forgery_ja/forgery_ja_api.rb a6e0908d17ff65c2ed9d63bf321126d5d555e95f
+lib/forgery_ja/forgery_ja/date.rb fdc36502d38430114900f76c3bcbdab272c1bf1a
+lib/forgery_ja/forgery_ja/name.rb 3a3b61f87f1b935399a515ab151085aa2ac53488
+lib/forgery_ja/forgery_ja/address.rb 38ab2111b036e38f5b2513f37b689121dfb96742
+lib/forgery_ja/forgery_ja/monetary.rb bbaa75332899e9b2a26ceabb61c577b319ef2a82

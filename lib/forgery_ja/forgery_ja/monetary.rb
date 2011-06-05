@@ -11,7 +11,9 @@ class ForgeryJa::Monetary < Forgery::Monetary
     options[:format] % money(options)
   end
 
-  # @params Hash options
+  # Create Random number
+  #  defaut 0 to 1000
+  # @param Hash options
   # @option options [Fixnum] :max (1000) 金額の最大値
   # @option options [Fixnum] :min (0) 金額の最小値
   # @return Fixnum
@@ -23,7 +25,9 @@ class ForgeryJa::Monetary < Forgery::Monetary
   end
 
   # popularity in Japan
-  # @params Hash options
+  #   日本においてポピュラーな数値を生成します
+  #   適当実装ですので1980, 19800,などの数値になります
+  # @param Hash options
   # @option options [Fixnum] :digit (4) 金額の桁
   # @return Fixnum
   def self.popularity_money(options={})

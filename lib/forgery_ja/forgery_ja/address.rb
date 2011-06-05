@@ -84,7 +84,7 @@ class ForgeryJa::Address < Forgery::Address
   # @option options [Boolean] :city (true) 群市区を含めるかどうか
   # @option options [Boolean] :street (true) 町名を含めるかどうか
   # @option options [Boolean] :number (true) 番地を含めるかどうか
-  # @otpion options [Boolean] :blank (false) それぞれのフィールドを半角スペースで区切るかどうか
+  # @option options [Boolean] :blank (false) それぞれのフィールドを半角スペースで区切るかどうか
   # @option options [Fixnum] :to (ForgeryJa::KANA) 生成する文字の種類を指定します
   # @return [String]
   # @example
@@ -115,7 +115,7 @@ class ForgeryJa::Address < Forgery::Address
   # @return [Hash]
   # @example
   #   ForgeryJa(:address).address_list
-  #   # => 
+  #   # => {:state=>["大阪府", "おおさかふ", "オオサカフ", "ｵｵｻｶﾌ", "Osaka"], :city=>["新宿区", "しんじゅくく", "シンジュクク", "ｼﾝｼﾞｭｸｸ", "Shinjyuku-ku"], :street=>["高倉町", "たかくらちょう", "タカクラチョウ", "ﾀｶｸﾗﾁｮｳ", "Takakura-cho"], :number=>"6750-0"}
   def self.address_list(options={})
     options = {:state => true, :city => true, :street => true, :number => true}.merge(options)
     list = {}
@@ -127,6 +127,11 @@ class ForgeryJa::Address < Forgery::Address
   end
   
   private
+  # Arrayの各列をmergeします
+  #
+  # @example
+  #   list_merge(['x', 'y'], ['1', '2'], true)
+  #   # => ['x 1', 'y 2']
   def self.list_merge(target, data, blank)
     return data if target.size == 0
     return target if data.size == 0

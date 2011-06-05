@@ -1,0 +1,1 @@
+require 'forgery_ja'

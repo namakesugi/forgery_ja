@@ -8,12 +8,12 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["namakesugi"]
   s.email       = ["info@namakesugi.net"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/namakesugi/forgery_ja"
   s.summary     = %q{Forgery for Japanese Data}
-  s.description = %q{Easy to }
+  s.description = %q{Create dummy japanese data.}
 
   s.rubyforge_project = "forgery_ja"
-  s.add_dependency "forgery", "~>0.2.2"
+  s.add_dependency "forgery", "~>0.3.7"
   s.add_development_dependency "rspec"
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

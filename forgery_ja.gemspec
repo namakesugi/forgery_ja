@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.description = %q{Create dummy japanese data.}
 
   s.rubyforge_project = "forgery_ja"
-  s.add_dependency "forgery", "~>0.3.7"
+  s.add_dependency "forgery", "~>0.3.8"
   s.add_development_dependency "rspec"
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

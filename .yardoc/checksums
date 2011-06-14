@@ -4,5 +4,6 @@ lib/forgery_ja/forgery_ja.rb ea4f29270c4bb8fbbe12428b4805cbb6ed5af06c
 lib/forgery_ja/forgery_ja_api.rb 0ace41ad9f8844d64636f664ac629f5587a9fea5
 lib/forgery_ja/forgery_ja/date.rb fdc36502d38430114900f76c3bcbdab272c1bf1a
 lib/forgery_ja/forgery_ja/name.rb 116f26497830ab72c23b83ebb325b5dc66929e6b
-lib/forgery_ja/forgery_ja/address.rb bc2c537a00a68b9698f7466dbd4074a579938eb9
+lib/forgery_ja/forgery_ja/mobile.rb aac5cf71390c26fbb7f37755f8778cabf502f474
+lib/forgery_ja/forgery_ja/address.rb ff8d9d4d04b5dd92b5adb3f55556f31beb6a9d30
 lib/forgery_ja/forgery_ja/monetary.rb f5ff0586c8ef87265f11c52cfacf06cf1673d588

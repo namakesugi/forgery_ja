@@ -35,6 +35,7 @@ describe ForgeryJa::Address do
   end
 
   describe ".state" do
+    
     context "ForgeryJa::KANJIを指定したとき" do
       subject { ForgeryJa(:address).state(:to => ForgeryJa::KANJI) }
       it { should match /^[一-龠]+$/ }
@@ -68,82 +69,83 @@ describe ForgeryJa::Address do
       it { should be_kind_of(String) }
     end
     context "ForgeryJa::ARRAYを指定し、blankをtrueにしたとき" do
-      before(:all) { @res = ForgeryJa(:address).full_address(:to => ForgeryJa::ARRAY, :blank => true) }
-      it { @res.should be_kind_of(Array) }
-      it { @res.should have(5).items }
-      it { @res[0].split(' ').should have(4).items }
+      let(:res){ ForgeryJa(:address).full_address(:to => ForgeryJa::ARRAY, :blank => true) }
+      it { res.should be_kind_of(Array) }
+      it { res.should have(5).items }
+      it { res[0].split(' ').should have(4).items }
     end
   end
   
   describe ".address_list" do
     context "何も指定しないとき" do
-      before(:all) { @res = ForgeryJa(:address).address_list }
+      let(:res){ForgeryJa(:address).address_list }
       it "4つのkeyをもつHash" do
-        @res.should be_kind_of(Hash)
-        @res.should have(4).items
+        res.should be_kind_of(Hash)
+        res.should have(4).items
       end
       it ":stateというkeyをもちvalueはArray" do
-        @res.should be_has_key(:state)
-        @res[:state].should be_kind_of(Array)
+        res.should be_has_key(:state)
+        res[:state].should be_kind_of(Array)
       end
       it ":cityというkeyをもちvalueはArray" do
-        @res.should be_has_key(:city)
-        @res[:city].should be_kind_of(Array)
+        res.should be_has_key(:city)
+        res[:city].should be_kind_of(Array)
       end
       it ":streetというkeyをもちvalueはArray" do
-        @res.should be_has_key(:street)
-        @res[:street].should be_kind_of(Array)
+        res.should be_has_key(:street)
+        res[:street].should be_kind_of(Array)
       end
       it ":numberというkeyをもちvalueはString" do
-        @res.should be_has_key(:number)
-        @res[:number].should be_kind_of(String)
+        res.should be_has_key(:number)
+        res[:number].should be_kind_of(String)
       end
     end
     
     context ":stateにfalseを指定したとき" do
-      before(:all) { @res = ForgeryJa(:address).address_list(:state => false) }
+      let(:res){ ForgeryJa(:address).address_list(:state => false) }
       it "3つのkeyをもつHash" do
-        @res.should be_kind_of(Hash)
-        @res.should have(3).items
+        res.should be_kind_of(Hash)
+        res.should have(3).items
       end
       it ":stateというkeyはもたない" do
-        @res.should_not be_has_key(:state)
+        res.should_not be_has_key(:state)
       end
     end
     
     context ":cityにfalseを指定したとき" do
-      before(:all) { @res = ForgeryJa(:address).address_list(:city => false) }
+      let(:res){ ForgeryJa(:address).address_list(:city => false) }
       it "3つのkeyをもつHash" do
-        @res.should be_kind_of(Hash)
-        @res.should have(3).items
+        res.should be_kind_of(Hash)
+        res.should have(3).items
       end
       it ":cityというkeyはもたない" do
-        @res.should_not be_has_key(:city)
+        res.should_not be_has_key(:city)
       end
     end
     
     context ":street,:cityにfalseを指定したとき" do
-      before(:all) { @res = ForgeryJa(:address).address_list(:city => false, :street => false) }
+      let(:res){ ForgeryJa(:address).address_list(:city => false, :street => false) }
       it "2つのkeyをもつHash" do
-        @res.should be_kind_of(Hash)
-        @res.should have(2).items
+        res.should be_kind_of(Hash)
+        res.should have(2).items
       end
       it ":city,:streetというkeyはもたない" do
-        @res.should_not be_has_key(:city)
-        @res.should_not be_has_key(:street)
+        res.should_not be_has_key(:city)
+        res.should_not be_has_key(:street)
       end
     end
     
     context ":number,:stateにfalseを指定したとき" do
-      before(:all) { @res = ForgeryJa(:address).address_list(:state => false, :number => false) }
+      let(:res){ ForgeryJa(:address).address_list(:state => false, :number => false) }
       it "2つのkeyをもつHash" do
-        @res.should be_kind_of(Hash)
-        @res.should have(2).items
+        res.should be_kind_of(Hash)
+        res.should have(2).items
       end
       it ":number,:stateというkeyはもたない" do
-        @res.should_not be_has_key(:number)
-        @res.should_not be_has_key(:state)
+        res.should_not be_has_key(:number)
+        res.should_not be_has_key(:state)
       end
     end
+    
   end
 end

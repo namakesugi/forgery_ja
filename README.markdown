@@ -1,37 +1,60 @@
 # ForgeryJa
 
-Forgeryにおいて日本語のテストデータを作成します
+日本語のテストデータを作成します
+Forgeryをベースにしています
+出力オプションで平仮名・カタカナ・半角カタカナ・ローマ字・配列での出力が可能です
+デフォルトは漢字です
+
+Forgeryを継承して作成しており、既存のForgeryコードへ影響はでません
+
+以下のコードはインストール前・後で動作に変更はありません
+<pre><code>Forgery(:address).street_name
+# => Emmet
+</pre></code>
 
 ## install
 
 Add Gemfile
 <pre><code>gem 'forgery_ja'</code></pre>
 
-## Examples
-
-### Name関連
-
-<pre><code>ForgeryJa(:name).full_name                            # => "山本 健"
-ForgeryJa(:name).full_name(:to => ForgeryJa::HIRA)     # => "なかむら しゅん"
-ForgeryJa(:name).full_name(:to => ForgeryJa::KANA)     # => "フジタ アマネ"
-ForgeryJa(:name).full_name(:to => ForgeryJa::H_KANA)   # => "ﾀﾏｼﾛ ﾕｽﾞﾊ" ... half kana
-ForgeryJa(:name).full_name(:to => ForgeryJa::ROMA)     # => "suzuki midori"
-ForgeryJa(:name).first_name                           # => "健"
-ForgeryJa(:name).last_name                            # => "鈴木"
-ForgeryJa(:name).male_first_name                      # => "健" ... 男性名
-ForgeryJa(:name).female_first_name                    # => "千夏" ... 女性名
-ForgeryJa(:name).company_name                         # => "エンプラス"
-ForgeryJa(:name).job_title                            # => "医師"
-ForgeryJa(:name).title                                # => "君"
-</code></pre>
-
-#### option
+## 出力オプション
 
 * ForgeryJa::HIRA(or 1)で平仮名出力
 * ForgeryJa::KANA(or 2)でカナ出力
 * ForgeryJa::H_KANA(or 3)で半角カナ出力
 * ForgeryJa::ROMA(or 4)で半角ローマ字出力
-※titleは対応してません
+* ForgeryJa::ARRAY(or 5)で配列出力
+※一部メソッドは対応してません
+
+## Examples
+
+<pre><code>ForgeryJa(:name).full_name
+# => "山本 健"
+ForgeryJa(:name).full_name(:to => ForgeryJa::HIRA
+# => "なかむら しゅん"
+ForgeryJa(:name).full_name(:to => ForgeryJa::KANA)
+# => "フジタ アマネ"
+ForgeryJa(:name).full_name(:to => ForgeryJa::H_KANA)
+# => "ﾀﾏｼﾛ ﾕｽﾞﾊ" ... half kana
+ForgeryJa(:name).full_name(:to => ForgeryJa::ROMA)
+# => "suzuki midori"
+</code></pre>
+
+<pre><code>ForgeryJa(:name).first_name
+# => "健"
+ForgeryJa(:name).last_name
+# => "鈴木"
+ForgeryJa(:name).male_first_name
+# => "健" ... 男性名
+ForgeryJa(:name).female_first_name
+# => "千夏" ... 女性名
+ForgeryJa(:name).company_name
+# => "エンプラス"
+ForgeryJa(:name).job_title
+# => "医師"
+ForgeryJa(:name).title
+# => "君"
+</code></pre>
 
 ### Monetary(お金関連)
 
@@ -59,9 +82,11 @@ ForgeryJa(:date).day_of_week(:abbr => true) # => "月"</code></pre>
 
 ## features
 
-* Gem化したい(できた？)
-* Address作る
-* 電話番号作る
+* Gem化したい => OK
+* Address作る => OK(~>v0.2.0)
+* 日本の電話番号を出せるようにする(090-xxxx-xxxx, 0120-xxx...)
+* セキュリティチェックができるサンプルコードを出す(HTMLタグ等)
+* 日本語の文章を出す(我輩は猫である等)
 
 ## Copyright
 

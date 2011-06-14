@@ -16,7 +16,7 @@ class ForgeryJa::Address < Forgery::Address
     format = ( options[:hyphen] ? "###-####" : "#######" )
     format.to_numbers
   end
-  
+
   # Returns StateName in Japanese
   #   都道府県名を返します
   #
@@ -100,10 +100,10 @@ class ForgeryJa::Address < Forgery::Address
     result = list[:state] if list[:state]
     result = list_merge(result, list[:city], options[:blank])
     result = list_merge(result, list[:street], options[:blank])
-    result.collect!{|f| options[:blank] ? f + " " + list[:number] : f + list[:number] } if list[:number]
+    result.collect!{|f| f + (options[:blank] ? ' ':'') + list[:number] } if list[:number]
     options[:to] == ForgeryJa::ARRAY ? result : result[options[:to]]
   end
-  
+
   # Returns AddressList in Japanese
   #   日本語の住所のリストを生成して返します
   #
@@ -125,21 +125,17 @@ class ForgeryJa::Address < Forgery::Address
     list[:number] = street_number if options[:number]
     list
   end
-  
+
   private
   # Arrayの各列をmergeします
   #
   # @example
   #   list_merge(['x', 'y'], ['1', '2'], true)
   #   # => ['x 1', 'y 2']
-  def self.list_merge(target, data, blank)
+  def self.list_merge(target, data, blank=true)
     return data if target.size == 0
     return target if data.size == 0
-    
-    data.each_with_index do |f,i|
-      target[i] << " " if blank
-      target[i] << f
-    end
-    target
+    target.zip(data).map{|f| f.join blank ? ' ' : ''}
   end
 end
+

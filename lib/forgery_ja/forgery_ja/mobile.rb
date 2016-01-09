@@ -42,7 +42,8 @@ class ForgeryJa::Mobile < ForgeryJa
   # @return [String]
   def self.phone_number(options={})
     options = {:hyphen => true}.merge(options)
-    format = ( options[:hyphen] ? "-####-####" : "########" )
+    local_office_number_prefix = Kernel.rand(1..9)
+    format = ( options[:hyphen] ? "-#{local_office_number_prefix}###-####" : "#{local_office_number_prefix}#######" )
     ["090", "080", "070"].random + format.to_numbers
   end
 
